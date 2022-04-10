@@ -11,9 +11,11 @@ class DefaultController extends AbstractController
     #[Route('/', name: 'homepage')]
     public function index(): Response
     {
-        return $this->json([
+        /*  return $this->json([
             'message' => 'Welcome to your new controller!',
             'path' => 'src/Controller/DefaultController.php',
-        ]);
+        ]);*/
+
+        return $this->render('default/index.html.twig');
     }
 }
