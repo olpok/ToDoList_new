@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Task;
 use App\Form\TaskType;
 use App\Repository\TaskRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/task')]
 class TaskController extends AbstractController
@@ -40,26 +41,15 @@ class TaskController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/tasks/{id}/toggle", name="task_toggle")
-     */
     #[Route('/{id}/toggle', name: 'task_toggle')]
-    public function toggleTaskAction(Task $task)
+    public function toggleTaskAction(Task $task, EntityManagerInterface $entityManager)
     {
         $task->toggle(!$task->isDone());
-        $this->getDoctrine()->getManager()->flush();
+        $entityManager->flush();
 
         $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
 
         return $this->redirectToRoute('task_index');
-    }
-
-    #[Route('/{id}', name: 'task_show', methods: ['GET'])]
-    public function show(Task $task): Response
-    {
-        return $this->render('task/show.html.twig', [
-            'task' => $task,
-        ]);
     }
 
     #[Route('/{id}/edit', name: 'task_edit', methods: ['GET', 'POST'])]
@@ -80,7 +70,7 @@ class TaskController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'task_delete', methods: ['POST'])]
+    #[Route('/{id}/delete', name: 'task_delete', methods: ['GET', 'POST'])]
     public function delete(Request $request, Task $task, TaskRepository $taskRepository): Response
     {
         if ($this->isCsrfTokenValid('delete' . $task->getId(), $request->request->get('_token'))) {
