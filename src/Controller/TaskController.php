@@ -51,7 +51,7 @@ class TaskController extends AbstractController
 
         $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
 
-        return $this->redirectToRoute('task_list');
+        return $this->redirectToRoute('task_index');
     }
 
     #[Route('/{id}', name: 'task_show', methods: ['GET'])]
