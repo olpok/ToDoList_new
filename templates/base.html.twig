@@ -35,10 +35,10 @@
         <div class="container">
             <br> <br> <br>
             <div class="row">
-                <a href="{#{ path('user_create') }#}" class="btn btn-primary">Créer un utilisateur</a>
+                <a href="{{ path('app_user_new') }}" class="btn btn-primary">Créer un utilisateur</a>
 
                 {% if app.user %}
-                <a href="{#{ path('logout') }#}" class="pull-right btn btn-danger">Se déconnecter</a>
+                <a href="{{ path('logout') }}" class="pull-right btn btn-danger">Se déconnecter</a>
                 {% endif %}
 
                 {% if not app.user and 'login' != app.request.attributes.get('_route') %}
