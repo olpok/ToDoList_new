@@ -16,14 +16,11 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email')
-            /* ->add('roles', ChoiceType::class, [
-                'label' => 'Vore rôle',
-                'required' => false
-            ])*/
+            ->add('roles')
             ->add('password')
             ->add('username');
 
-        /*    $builder
+        $builder
             ->get('roles')
             ->addModelTransformer(new CallbackTransformer(
                 function ($rolesAsArray) {
@@ -34,7 +31,7 @@ class UserType extends AbstractType
                     // transform the string back to an array
                     return explode(', ', $rolesAsString);
                 }
-            ));*/
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver): void
