@@ -75,23 +75,28 @@ class TaskController extends AbstractController
     #[Route('/{id}/delete', name: 'task_delete', methods: ['GET', 'POST'])]
     public function delete(Request $request, Task $task, TaskRepository $taskRepository): Response
     {
-        // dd($task->getUser());
-
         if (
             $task->getUser() == $this->getUser()
-            //  OR ($task->getUser()==NULL 
         ) {
             if ($this->isCsrfTokenValid('delete' . $task->getId(), $request->request->get('_token'))) {
                 $taskRepository->remove($task);
                 $this->addFlash('success', 'La tâche a bien été supprimée.');
             }
+            return $this->redirectToRoute('task_index', [], Response::HTTP_SEE_OTHER);
+        } elseif ($task->getUser() == NULL) {
+            $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
+            // dd("supprimé null par admin");
+            if ($this->isCsrfTokenValid('delete' . $task->getId(), $request->request->get('_token'))) {
+                $taskRepository->remove($task);
+                $this->addFlash('success', 'La tâche a bien été supprimée.');
+            }
             return $this->redirectToRoute('task_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        //  dd("error");
-        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'User tried to access a page without having  appropriated role ROLE_ADMIN');
+        dd("pas le meme user ni null - none returned à changer");
+        // $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'User tried to access a page without having  appropriated role ROLE_ADMIN');
 
-        //return $this->render('default/index.html.twig');
+        //return $this->render('default/index.html.twig'); 
     }
 }
