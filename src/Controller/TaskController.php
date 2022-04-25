@@ -28,8 +28,10 @@ class TaskController extends AbstractController
         $task = new Task();
         $form = $this->createForm(TaskType::class, $task);
         $form->handleRequest($request);
+        $user = $this->getUser(); //fetching the User Object of the current User after authentication 
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $task->setUser($user);
             $taskRepository->add($task);
             $this->addFlash('success', 'La tâche a été bien été ajoutée.');
             return $this->redirectToRoute('task_index', [], Response::HTTP_SEE_OTHER);
