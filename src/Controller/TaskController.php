@@ -75,7 +75,7 @@ class TaskController extends AbstractController
     #[Route('/{id}/delete', name: 'task_delete', methods: ['GET', 'POST'])]
     public function delete(Request $request, Task $task, TaskRepository $taskRepository): Response
     {
-        dd($task->getUser());
+        // dd($task->getUser());
 
         if (
             $task->getUser() == $this->getUser()
