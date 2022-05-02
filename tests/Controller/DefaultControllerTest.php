@@ -20,7 +20,6 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/');
 
         $this->assertSelectorTextContains('h1', 'Bienvenue sur Todo List, l\'application vous permettant de gérer l\'ensemble de vos tâches sans effort ');
-        $this->assertSelectorExists('a[href]');
     }
 
     public function testIfHrefExists(): void

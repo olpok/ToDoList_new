@@ -30,12 +30,10 @@ class UserEntityTest extends TestCase
     $this->assertEquals(null, $user->getId()); // ?
     $taskCollection = $user->getTasks();
     $this->assertEquals('Title', $taskCollection->last()->getTitle());
+    $this->assertEquals('Content', $taskCollection->last()->getContent());
 
     $user->removeTask($task);    // Remove the task.
     $taskCollection = $user->getTasks();
     $this->assertEquals(true, $taskCollection->isEmpty());
-
-    // $this->assertEquals("Title", $task->getTitle());
-    // $this->assertEquals("Content", $task->getContent());
   }
 }
