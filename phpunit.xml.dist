@@ -27,6 +27,10 @@
         <include>
             <directory suffix=".php">src</directory>
         </include>
+        <exclude>
+            <directory suffix=".php">src/Datafixtures</directory>
+            <file>src/kernel.php</file>
+        </exclude>
     </coverage>
 
     <listeners>
