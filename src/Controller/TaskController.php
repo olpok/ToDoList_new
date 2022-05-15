@@ -33,7 +33,7 @@ class TaskController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $task->setUser($user);
             $taskRepository->add($task);
-            $this->addFlash('success', 'La tâche a été bien été ajoutée.');
+            $this->addFlash('success', 'La tâche a bien été ajoutée.');
             return $this->redirectToRoute('task_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -95,8 +95,8 @@ class TaskController extends AbstractController
         }
 
         dd("pas le meme user ni null - none returned à changer");
-        // $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'User tried to access a page without having  appropriated role ROLE_ADMIN');
+        //  $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'User tried to access a page without having  appropriated role ROLE_ADMIN');
 
-        //return $this->render('default/index.html.twig'); 
+        // return $this->render('default/index.html.twig');
     }
 }

@@ -27,9 +27,34 @@ class DefaultControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
 
-        // $this->assertSelectorTextContains('a[href]', 'Créer une nouvelle tâche');
+        $this->assertSelectorTextContains('html', 'Créer un utilisateur');
         $this->assertSelectorExists('a[href]');
-        // $this->assertSelectorTextContains('a[href]', 'path(\'task_create\')');
-        // $this->assertSelectorExists('a[href *= "task_create"]');
+    }
+
+    public function testItShowsTheFormToTheUserAndRedirectsIfLoginSuccessfully(): void
+    {
+        //   $url = $this->generator->generate('login');
+        //   $this->client->request('GET', $url);
+
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+
+        $link =  $crawler->selectLink('Se connecter')->link();
+        $crawler = $client->click($link);
+
+        $this->assertSelectorTextContains('label', 'Email:');
+        $this->assertResponseIsSuccessful();
+        $this->assertRouteSame('login');
+
+        $crawler = $client->submitForm('Se connecter', [
+            '_username' => 'user1@gmail.com',
+            '_password' => 'user1'
+        ]);
+
+        $this->assertResponseRedirects();
+        $client->followRedirect();
+
+        $this->assertRouteSame('homepage');
+        $this->assertSelectorTextContains('html', 'Consulter la liste des tâches à faire');
     }
 }
