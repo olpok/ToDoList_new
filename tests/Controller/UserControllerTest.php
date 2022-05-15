@@ -7,7 +7,6 @@ use App\Tests\AuthenticationTrait;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\BrowserKit\Response as BrowserKitResponse;
 
 class UserControllerTest extends WebTestCase
 {
@@ -16,22 +15,21 @@ class UserControllerTest extends WebTestCase
     public function testIndexUsersRedirectToLogin(): void
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/admin');
+        $client->request('GET', '/admin');
 
         $this->assertResponseRedirects();
 
         $this->assertResponseStatusCodeSame(Response::HTTP_FOUND); //redirect from app_user_index to login
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
         $this->assertRouteSame('login');
         $this->assertSelectorTextContains('button', 'Se connecter');  // check if page login //ok
-
     }
 
     public function testVisitingWhileLoggedInAdmin(): void
     {
         $client = static::createAuthenticatedAdminClient();
 
-        $crawler = $client->request('GET', '/admin');
+        $client->request('GET', '/admin');
 
         //  $this->assertResponseStatusCodeSame(Response::HTTP_MOVED_PERMANENTLY);
 

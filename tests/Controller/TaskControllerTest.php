@@ -5,9 +5,7 @@ namespace App\Tests\Controller;
 use Generator;
 use App\Entity\Task;
 use App\Repository\TaskRepository;
-use App\Repository\UserRepository;
 use App\Tests\AuthenticationTrait;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -107,7 +105,6 @@ class TaskControllerTest extends WebTestCase
 
         $taskRepository = static::getContainer()->get(TaskRepository::class);
         $task = $taskRepository->findOneBy([]);
-        //  $task = $taskRepository->findOneByEmail('john.doe@example.com');
 
         $crawler = $client->request(
             Request::METHOD_GET,
@@ -144,7 +141,7 @@ class TaskControllerTest extends WebTestCase
         $taskRepository = static::getContainer()->get(TaskRepository::class);
         $task = $taskRepository->findOneBy([]);
 
-        $crawler = $client->request(
+        $client->request(
             Request::METHOD_GET,
             $urlGenerator->generate("task_toggle", ["id" => $task->getId()])
         );
@@ -167,7 +164,7 @@ class TaskControllerTest extends WebTestCase
         $taskRepository = static::getContainer()->get(TaskRepository::class);
         $task = $taskRepository->findOneById(2);
 
-        $crawler = $client->request(
+        $client->request(
             Request::METHOD_GET,
             $urlGenerator->generate("task_delete", ["id" => $task->getId()])
         );

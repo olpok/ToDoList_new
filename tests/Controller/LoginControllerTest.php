@@ -10,31 +10,19 @@ class LoginControllerTest extends WebTestCase
     public function testDisplayLogin(): void
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/login');
+        $client->request('GET', '/login');
 
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('label', 'Email:');
         $this->assertSelectorTextContains('button', 'Se connecter');
     }
 
-
     public function testLoginSuccessfull(): void
     {
         $client = static::createClient();
         $client->request('GET', '/login');
 
-
-        /*     $client->xmlHttpRequest(
-            'POST',
-            '/login',
-            [
-                '_username' => 'user@gmail.com',
-                '_password' => 'user'
-            ]
-        ); // test Babacar */
-
-
-        $crawler = $client->submitForm('Se connecter', [
+        $client->submitForm('Se connecter', [
             '_username' => 'user1@gmail.com',
             '_password' => 'user1'
         ]);
@@ -51,7 +39,7 @@ class LoginControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/login');
 
-        $crawler = $client->submitForm('Se connecter', [
+        $client->submitForm('Se connecter', [
             '_username' => 'user1@gmail.com',
             '_password' => 'fakepassword'
         ]);
