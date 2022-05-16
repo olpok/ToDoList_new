@@ -1,5 +1,7 @@
 # ToDoList_new
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/21ad8a15c68f4ff4a9ef3e4ec971f6d6)](https://app.codacy.com/gh/olpok/ToDoList_new?utm_source=github.com&utm_medium=referral&utm_content=olpok/ToDoList_new&utm_campaign=Badge_Grade_Settings)
+
 ToDoAndCo
 
 About the project
