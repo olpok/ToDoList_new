@@ -74,10 +74,6 @@ class TaskControllerTest extends WebTestCase
         );
 
         $this->assertResponseStatusCodeSame(Response::HTTP_UNPROCESSABLE_ENTITY);
-
-        // $client->followRedirect();
-        //  $this->assertRouteSame('task_index');
-        // $this->assertSelectorExists('.alert.alert-success', 'La tâche a bien été ajoutée.');
     }
 
     public function provideFailed(): Generator
@@ -154,30 +150,6 @@ class TaskControllerTest extends WebTestCase
         $this->assertSelectorExists('.alert.alert-success', 'La tâche %s a bien été marquée comme faite.');
     }
 
-    public function testDeleteByAdminAnonymousUser()
-    {
-        $client = static::createAuthenticatedAdminClient();
-
-        /** @var UrlGeneratorInterface $urlGenerator */
-        $urlGenerator = $client->getContainer()->get("router");
-
-        $taskRepository = static::getContainer()->get(TaskRepository::class);
-        $task = $taskRepository->findOneById(2);
-
-        $client->request(
-            Request::METHOD_GET,
-            $urlGenerator->generate("task_delete", ["id" => $task->getId()])
-        );
-
-        $this->assertResponseRedirects();
-        $client->followRedirect();
-
-        $this->assertResponseIsSuccessful();
-        $this->assertRouteSame('task_index');
-        // $this->assertSelectorTextContains('html', 'La tâche a bien été supprimée.');
-        $this->assertSelectorExists('', 'La tâche a bien été supprimée.');
-    }
-
     public function testDeleteBySameUser()
     {
         $client = static::createAuthenticatedUserClient();
@@ -221,26 +193,33 @@ class TaskControllerTest extends WebTestCase
         $this->assertSelectorExists('.alert.alert-success', 'La tâche a bien été supprimée.');
     }
 
-    /*  public function testDeleteFailedNotBySameUser()
+    public function testDeleteFailedNotBySameUser()
     {
-        $client = static::createAuthenticatedAdminClient();
+        $client = static::createAuthenticatedUserClient();
 
         /** @var UrlGeneratorInterface $urlGenerator */
-    //  $urlGenerator = $client->getContainer()->get("router");
+        $urlGenerator = $client->getContainer()->get("router");
 
-    /*     $taskRepository = static::getContainer()->get(TaskRepository::class);
-        $task = $taskRepository->findOneById(1);
+        $taskRepository = static::getContainer()->get(TaskRepository::class);
+        $task = $taskRepository->findOneById(3);
 
         $crawler = $client->request(
             Request::METHOD_GET,
+            $urlGenerator->generate("task_edit", ["id" => $task->getId()])
+        ); // check edit route
+
+        // select the button
+        $buttonCrawlerNode = $crawler->selectButton('Supprimer');
+
+        $form = $buttonCrawlerNode->form();
+
+        $client->submit($form);
+
+        /*  $crawler = $client->request(
+            Request::METHOD_GET,
             $urlGenerator->generate("task_delete", ["id" => $task->getId()])
-        );
+        );*/
 
-        $this->assertResponseRedirects();
-        $client->followRedirect();
-
-        // $this->assertResponseIsSuccessful();
-        //   $this->assertRouteSame('task_index');
-        // $this->assertSelectorExists('', 'La tâche a bien été supprimée.');
-    }*/
+        $this->assertResponseStatusCodeSame(Response::HTTP_FORBIDDEN);
+    }
 }

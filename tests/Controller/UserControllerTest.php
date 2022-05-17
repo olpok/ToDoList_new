@@ -39,25 +39,14 @@ class UserControllerTest extends WebTestCase
         $this->assertSelectorTextContains('h1', 'User index');
     }
 
-    /*  public function testVisitingWhileLoggedInUser(): void //ok mais gestion erreur
+    public function testVisitingWhileLoggedInUser(): void //ok mais gestion erreur
     {
         $client = static::createAuthenticatedUserClient();
 
-        $crawler = $client->request('GET', '/admin');
-
-        // $this->assertResponseIsSuccessful();
-
-        //  $this->assertResponseStatusCodeSame(Response::HTTP_MOVED_PERMANENTLY);
-
-        $this->assertResponseRedirects();
-        $client->followRedirect();
+        $client->request('GET', '/admin');
 
         $this->assertResponseStatusCodeSame(Response::HTTP_FORBIDDEN);
-        // $this->assertSelectorTextContains('html', 'Access Denied.');
-
-        //   $this->assertSelectorExists('a[href]');
-        // $this->assertSelectorTextContains('h1', 'User index');
-    }*/
+    }
 
     public function testCreateUserSuccessfull()
     {
