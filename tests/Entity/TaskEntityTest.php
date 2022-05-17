@@ -18,7 +18,7 @@ class TaskEntityTest extends TestCase
         $task = new Task(); //create Task object
         $task->setTitle("Title");
         $task->setContent("Content");
-        //      $task->setCreatedAt(new \DateTimeImmutable());
+        $task->setCreatedAt(new \DateTimeImmutable());
 
         $user = new User(); // Create User object.
         $user->setUsername("Name");
@@ -35,9 +35,9 @@ class TaskEntityTest extends TestCase
         $this->assertEquals(null, $task->getId());
         $this->assertEquals($user, $task->getUser());
 
-        //       $current_time = date("Y-m-d H:i:s");
-        //       $createdAt = date_format($task->getCreatedAt(), "Y-m-d H:i:s");
+        $current_time = date("Y-m-d H:i:s");
+        $createdAt = date_format($task->getCreatedAt(), "Y-m-d H:i:s");
 
-        //      $this->assertEquals($current_time, $createdAt);
+        $this->assertEquals($current_time, $createdAt);
     }
 }
