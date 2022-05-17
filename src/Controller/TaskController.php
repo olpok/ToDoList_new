@@ -76,7 +76,7 @@ class TaskController extends AbstractController
     public function delete(Request $request, Task $task, TaskRepository $taskRepository): Response
     {
         if (
-            $task->getUser() == $this->getUser()
+            $task->getUser() == $this->getUser() //the same user
         ) {
             if ($this->isCsrfTokenValid('delete' . $task->getId(), $request->request->get('_token'))) {
                 $taskRepository->remove($task);
@@ -94,9 +94,9 @@ class TaskController extends AbstractController
             return $this->redirectToRoute('task_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        dd("pas le meme user ni null - none returned à changer");
-        //  $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'User tried to access a page without having  appropriated role ROLE_ADMIN');
+        // dd("pas le meme user ni null - none returned à changer");
+        $request->getSession()->getFlashBag()->add('note', 'Vous ne pouvez pas effectuer cette opération.');
 
-        // return $this->render('default/index.html.twig');
+        return $this->redirectToRoute('task_index', [], Response::HTTP_SEE_OTHER);
     }
 }
