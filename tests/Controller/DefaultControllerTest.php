@@ -17,7 +17,7 @@ class DefaultControllerTest extends WebTestCase
     public function testH1Index(): void
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/');
+        $client->request('GET', '/');
 
         $this->assertSelectorTextContains('h1', 'Bienvenue sur Todo List, l\'application vous permettant de gérer l\'ensemble de vos tâches sans effort ');
     }
@@ -25,7 +25,7 @@ class DefaultControllerTest extends WebTestCase
     public function testIfHrefExists(): void
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/');
+        $client->request('GET', '/');
 
         $this->assertSelectorTextContains('html', 'Créer un utilisateur');
         $this->assertSelectorExists('a[href]');
@@ -33,9 +33,6 @@ class DefaultControllerTest extends WebTestCase
 
     public function testItShowsTheFormToTheUserAndRedirectsIfLoginSuccessfully(): void
     {
-        //   $url = $this->generator->generate('login');
-        //   $this->client->request('GET', $url);
-
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
 
