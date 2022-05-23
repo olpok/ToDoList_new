@@ -18,7 +18,19 @@ class TaskController extends AbstractController
     public function index(TaskRepository $taskRepository): Response
     {
         return $this->render('task/index.html.twig', [
-            'tasks' => $taskRepository->findAll(),
+            'tasks' => $taskRepository->findBy(
+                ['isDone' => false]
+            ),
+        ]);
+    }
+
+    #[Route('/done', name: 'task_index_done', methods: ['GET'])]
+    public function indexDone(TaskRepository $taskRepository): Response
+    {
+        return $this->render('task/index.html.twig', [
+            'tasks' => $taskRepository->findBy(
+                ['isDone' => true]
+            ),
         ]);
     }
 
