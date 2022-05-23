@@ -27,6 +27,19 @@ class TaskControllerTest extends WebTestCase
         $this->assertSelectorExists('html', 'Supprimer');
     }
 
+    public function testVisitingDoneWhileLoggedIn(): void
+    {
+        $client = static::createAuthenticatedUserClient();
+
+        $crawler = $client->request('GET', '/');
+
+        $link =  $crawler->selectLink('Consulter la liste des tâches terminées')->link();
+        $crawler = $client->click($link);
+
+        $this->assertResponseIsSuccessful();
+        $this->assertRouteSame('task_index_done');
+    }
+
     public function testCreateTaskSuccessfull()
     {
         $client = static::createAuthenticatedUserClient();
