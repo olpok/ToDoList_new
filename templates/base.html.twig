@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Mobile Specific Meta -->
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta charset="UTF-8">
 
         <title>{% block title %}To Do List app{% endblock %}</title>
@@ -68,7 +70,11 @@
                     {% endfor %}
 
                     {% block header_title %}{% endblock %}
-                    {% block header_img %}<img class="slide-image" src="{{ asset('img/todolist_homepage.jpg') }}" alt="todo list">{% endblock %}
+                    {% block header_img %}
+                    <div class="row">
+                        <img class="slide-image" src="{{ asset('img/todolist_homepage.jpg') }}" alt="todo list">
+                    </div>                  
+                    {% endblock %}
                 </div>
             </div>
 
