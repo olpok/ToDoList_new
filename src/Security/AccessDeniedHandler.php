@@ -11,7 +11,10 @@ class AccessDeniedHandler implements AccessDeniedHandlerInterface
 {
     public function handle(Request $request, AccessDeniedException $accessDeniedException): ?Response
     {
-        $content = 'Accès refusé: Vous n\'avez pas l\'autorisation d\'effectuer cette opération';
+        $content = '<br> <br> <br><br> <br> <br> <br>  <br> <br> <br> <br> 
+        <center> 
+        <h1>Accès refusé: vous n\'avez pas l\'autorisation d\'effectuer cette opération </h1>
+        </center>';
         return new Response($content, 403);
     }
 }
