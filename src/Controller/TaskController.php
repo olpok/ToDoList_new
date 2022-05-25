@@ -98,7 +98,7 @@ class TaskController extends AbstractController
         } elseif ($task->getUser() == NULL) {
             $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
-            // dd("supprimé null par admin");
+            // anonymous user deleted by admin
             if ($this->isCsrfTokenValid('delete' . $task->getId(), $request->request->get('_token'))) {
                 $taskRepository->remove($task);
                 $this->addFlash('success', 'La tâche a bien été supprimée.');
@@ -106,7 +106,7 @@ class TaskController extends AbstractController
             return $this->redirectToRoute('task_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        // dd("pas le meme user ni null - none returned à changer");
+        // try to delete not by the same user or not anonumous by admin
         $request->getSession()->getFlashBag()->add('note', 'Vous ne pouvez pas effectuer cette opération.');
 
         return $this->redirectToRoute('task_index', [], Response::HTTP_SEE_OTHER);
