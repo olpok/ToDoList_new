@@ -4,6 +4,8 @@
 
 {% block body %}
     <h1>User index</h1>
+<div class="table-responsive">
+
 
     <table class="table">
         <thead>
@@ -33,6 +35,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
     <a href="{{ path('app_user_new') }}">Create new</a>
 {% endblock %}
