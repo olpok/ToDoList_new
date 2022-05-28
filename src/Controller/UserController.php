@@ -75,7 +75,7 @@ class UserController extends AbstractController
         if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $userRepository->remove($user);
             $entityManager->flush();
-            $this->addFlash('success', 'User supprimé avec success');
+            $this->addFlash('success', 'Utilisateur a bien été supprimé.');
         }
 
         return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
