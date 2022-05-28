@@ -42,6 +42,7 @@ class Task
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="tasks")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private $user;
 
