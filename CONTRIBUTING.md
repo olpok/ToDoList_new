@@ -1,9 +1,12 @@
-Contributing
+# Contributing
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 Please note we have a code of conduct, please follow it in all your interactions with the project.
-Bug reports
+
+### Bug reports
 A bug is a demonstrable problem that is caused by the code in the repository. Good bug reports are extremely helpful - thank you!
+
 Guidelines for bug reports:
+
 1. Check you satisfy the project requirements — https://github.com/olpok/ToDoList_new
 2. Use the GitHub issue search — check if the issue has already been reported.
 3. Check if the issue is already being solved in a PR — check the open Pull Requests to see if one already solves the problem you're having
@@ -14,18 +17,20 @@ What is your environment? Is it localhost, OSX, Linux, on a remote server? Same 
 What steps will reproduce the issue? What browser(s) and OS experience the problem?
 What would you expect to be the outcome?
 Did the problem start happening recently (e.g. after updating to a new version of the project) or was this always a problem?
+
 If the problem started happening recently, can you reproduce the problem in an older version? What's the most recent version in which the problem doesn't happen? You can download older versions of th project from the releases page on Github.
 Can you reliably reproduce the issue? If not, provide details about how often the problem happens and under which conditions it normally happens.
 All these details will help contributors to fix any potential bugs.
 Important: include Code Samples in triple backticks so that Github will provide a proper indentation. Add the language name after the backticks to add syntax highlighting to the code snippets.
-Feature requests
+### Feature requests
 Feature requests are welcome. But take a moment to find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. Please provide as much detail and context as possible.
-Pull requests
+### Pull requests
 Good pull requests - patches, improvements, new features - are a fantastic help. They should remain focused in scope and avoid containing unrelated commits.
 Please adhere to the coding conventions used throughout the project (indentation, accurate comments, etc.) and any other requirements.
-
 Before submitting a pull request, please make sure the following is done:
 Fork the repository and create your branch from main.
+
+
 
 See Using Pull Request and Fork a Repo if you're not familiar with Pull Requests.
 IMPORTANT: By submitting a patch, you agree to allow the project owner to license your work under the same license as that used by the project.
