@@ -36,7 +36,7 @@ class UserControllerTest extends WebTestCase
         $this->assertResponseRedirects();
         $client->followRedirect();
         $this->assertRouteSame('app_user_index');
-        $this->assertSelectorTextContains('h1', 'User index');
+        $this->assertSelectorTextContains('h1', 'Liste des utilisateurs');
     }
 
     public function testVisitingWhileLoggedInUser(): void //ok mais gestion erreur
@@ -91,7 +91,7 @@ class UserControllerTest extends WebTestCase
         );
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Edit User');
+        $this->assertSelectorTextContains('h1', 'Editer utilisateur');
 
         // select the button
         $buttonCrawlerNode = $crawler->selectButton('Modifier');
@@ -128,7 +128,7 @@ class UserControllerTest extends WebTestCase
         ); // check edit route
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Edit User'); //ok edit route
+        $this->assertSelectorTextContains('h1', 'Editer utilisateur'); //ok edit route
 
         // select the button
         $buttonCrawlerNode = $crawler->selectButton('Supprimer');

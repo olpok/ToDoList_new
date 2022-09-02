@@ -121,7 +121,7 @@ class TaskControllerTest extends WebTestCase
         );
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Edit Task');
+        $this->assertSelectorTextContains('h1', 'Editer tâche');
 
         // select the button
         $buttonCrawlerNode = $crawler->selectButton('Modifier');
