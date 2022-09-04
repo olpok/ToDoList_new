@@ -8,12 +8,16 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 A bug is a demonstrable problem that is caused by the code in the repository. Good bug reports are extremely helpful - thank you!
 
-### Guidelines for bug reports:
+### Guidelines for bug reports
 
 1.  Check you satisfy the project requirements — https://github.com/olpok/ToDoList_new. 
+
 2.  Use the GitHub issue search — check if the issue has already been reported.
-3.  Check if the issue is already being solved in a PR — check the open Pull Requests to see if one already solves the problem you're having
+
+3.  Check if the issue is already being solved in a PR — check the open Pull Requests to see if one already solves the problem you're having.
+
 4. Check if the issue has been fixed — try to reproduce it using the latest develop branch in the repository.
+
 5. Isolate the problem — create a reduced test case and provide a step-by-step instruction set on how to recreate the problem. Include code samples, page snippets or yaml configurations if needed.
 
 A good bug report shouldn't leave others needing to chase you up for more information. Please try to be as detailed as possible in your report.
@@ -32,7 +36,6 @@ Important: include Code Samples in triple backticks so that Github will provid
 Feature requests are welcome. But take a moment to find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. Please provide as much detail and context as possible.
 
 ### Pull requests
-
 
 Good pull requests - patches, improvements, new features - are a fantastic help. They should remain focused in scope and avoid containing unrelated commits.
 Please adhere to the coding conventions used throughout the project (indentation, accurate comments, etc.) and any other requirements.
