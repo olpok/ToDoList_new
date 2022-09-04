@@ -58,7 +58,7 @@ Examples of behavior that contributes to creating a positive environment include
 - The use of sexualized language or imagery and unwelcome sexual attention or advances <br>
 - Trolling, insulting/derogatory comments, and personal or political attacks  <br>
 - Public or private harassment <br>
-- Publishing others' private information, such as a physical or electronic address, without explicit permission <br> 
+- Publishing others' private information, such as a physical or electronic address, without explicit permission <br>
 - Other conduct which could reasonably be considered inappropriate in a professional setting  <br>
  
 ### Our Responsibilities
