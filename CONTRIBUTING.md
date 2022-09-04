@@ -11,14 +11,10 @@ A bug is a demonstrable problem that is caused by the code in the repository. 
 ### Guidelines for bug reports
 
 1.  Check you satisfy the project requirements — https://github.com/olpok/ToDoList_new. 
-
 2.  Use the GitHub issue search — check if the issue has already been reported.
-
 3.  Check if the issue is already being solved in a PR — check the open Pull Requests to see if one already solves the problem you're having.
-
-4. Check if the issue has been fixed — try to reproduce it using the latest develop branch in the repository.
-
-5. Isolate the problem — create a reduced test case and provide a step-by-step instruction set on how to recreate the problem. Include code samples, page snippets or yaml configurations if needed.
+4.  Check if the issue has been fixed — try to reproduce it using the latest develop branch in the repository.
+5.  Isolate the problem — create a reduced test case and provide a step-by-step instruction set on how to recreate the problem. Include code samples, page snippets or yaml configurations if needed.
 
 A good bug report shouldn't leave others needing to chase you up for more information. Please try to be as detailed as possible in your report.
 What is your environment? Is it localhost, OSX, Linux, on a remote server? Same happening locally and or the server, or just locally or just on Linux?
@@ -53,17 +49,17 @@ In the interest of fostering an open and welcoming environment, we as contributo
 ### Our Standards
 
 Examples of behavior that contributes to creating a positive environment include:
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
-- Showing empathy towards other community members
-- Examples of unacceptable behavior by participants include:
-- The use of sexualized language or imagery and unwelcome sexual attention or advances
-- Trolling, insulting/derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information, such as a physical or electronic address, without explicit permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+- Using welcoming and inclusive language  
+- Being respectful of differing viewpoints and experiences  
+- Gracefully accepting constructive criticism  
+- Focusing on what is best for the community  
+- Showing empathy towards other community members  
+- Examples of unacceptable behavior by participants include:  
+- The use of sexualized language or imagery and unwelcome sexual attention or advances  
+- Trolling, insulting/derogatory comments, and personal or political attacks  
+- Public or private harassment  
+- Publishing others' private information, such as a physical or electronic address, without explicit permission  
+- Other conduct which could reasonably be considered inappropriate in a professional setting  
 
 ### Our Responsibilities
 
