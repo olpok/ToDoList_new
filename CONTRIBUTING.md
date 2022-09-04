@@ -61,7 +61,6 @@ Examples of behavior that contributes to creating a positive environment include
 - Publishing others' private information, such as a physical or electronic address, without explicit permission <br> 
 - Other conduct which could reasonably be considered inappropriate in a professional setting  <br>
  
- 
 ### Our Responsibilities
 
 Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
